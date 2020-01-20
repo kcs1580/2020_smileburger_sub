@@ -8,4 +8,4 @@
 http://www.ndsl.kr/ndsl/search/detail/report/reportSearchResultDetail.do?cn=TRKO201100013524
 기각.
 
-아이디어 픽스됨.
+아이디어 픽스됨..
