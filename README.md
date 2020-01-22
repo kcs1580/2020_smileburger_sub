@@ -31,3 +31,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 https://xd.adobe.com/view/7ee7bfdf-d71f-4de5-6c7c-181785deb570-08d6/
 ```
 
+
+
+---
+
+## \<History>
+
+2020년 1월 22일: React 환경구축 및 학습(Front 기술스텍 변경, Vue -> React)
