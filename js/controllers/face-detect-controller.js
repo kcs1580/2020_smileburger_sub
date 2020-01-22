@@ -10,6 +10,7 @@ function FaceDetectController($scope, $state, $interval, $http, config, $timeout
   var creds = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: cfg.identity_pool_id,
   });
+  
 
   AWS.config.update({
     region: region,
