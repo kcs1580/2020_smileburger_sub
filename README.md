@@ -6,16 +6,6 @@
 
 The purpose of this exercise is to create a web application that leverages Amazon Rekognition and managed services to take advantage of general computer vision topics based on deep learning, such as object recognition and facial recognition. This exercise enables you to quickly and easily implement real-time face recognition that can be extended to a variety of use cases, such as user identification or emotional analysis.
 
-
-
- 
-## Prerequisites                                                                                    
-
-The lab takes **20-30** minutes and requires the following :
-
-#### Hands-on Lab Material
-[http://bit.ly/2pjEQAv](http://bit.ly/2pjEQAv) : Korean
-
 #### AWS account
 #### AWS Command Line Interface
 To complete the last module of this workshop, you must have the AWS Command Line Interface (CLI) installed on your computer. Use the CLI to copy the object to the S3 Web site bucket and create a face collection. Follow the AWS CLI Getting Started Guide to install and configure the CLI on your system.
