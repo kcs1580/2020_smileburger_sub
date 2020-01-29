@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   makeStyles,
   Typography,
@@ -14,7 +15,8 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginLeft: theme.spacing(2),
     height: "80px",
-    width: "80px"
+    width: "80px",
+    fontSize: "25px"
   },
   title: {
     flexGrow: 1
@@ -40,7 +42,9 @@ const HeaderOrder = props => {
         </Typography>
         <Fab className={classes.menuButton}>포장</Fab>
         <Fab className={classes.menuButton}>매장</Fab>
-        <Fab className={classes.menuButton}>첫화면</Fab>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Fab className={classes.menuButton}>첫화면</Fab>
+        </Link>
       </Toolbar>
     </AppBar>
   );

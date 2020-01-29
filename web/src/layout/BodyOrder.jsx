@@ -1,11 +1,11 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment } from "react";
 // import BodyOrderHedaer from "./BodyOrderHedaer";
 import BodyOrderChoiceList from "./BodyOrderChoiceList";
-import BugerList from "../components/BugerList";
+import BurgerListt from "../components/BurgerList";
 import SideList from "../components/SideList";
 import BeverageList from "../components/BeverageList";
 import { makeStyles, AppBar, Toolbar, Grid, Paper } from "@material-ui/core";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+// import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -35,17 +35,33 @@ const BodyOrder = () => {
     { id: 1, text: "사이드" },
     { id: 2, text: "음료" }
   ];
-  const menuList = menus.map(menu => (
-    <Grid item xs={2} key={menu.id}>
-      <Paper className={classes.paper}>{menu.text}</Paper>
-    </Grid>
-  ));
+  const BodyControl = () => {
+    switch (list) {
+      case 0:
+        return <BurgerListt />;
+      case 1:
+        return <SideList />;
+      case 2:
+        return <BeverageList />;
+      default:
+        return <BurgerListt />;
+    }
+  };
 
-  useEffect(() => (
-    <BrowserRouter>
-      <Route path="/order/buger" component={BugerList} />
-    </BrowserRouter>
-  ));
+  const menuList = menus.map(menu => {
+    return (
+      <Grid item xs={2} key={menu.id}>
+        <Paper
+          className={classes.paper}
+          onClick={() => {
+            setList(menu.id);
+          }}
+        >
+          {menu.text}
+        </Paper>
+      </Grid>
+    );
+  });
 
   return (
     <Fragment>
@@ -60,15 +76,8 @@ const BodyOrder = () => {
           </Grid>
         </Toolbar>
       </AppBar>
-      <div className={classes.menuContext} id="testMiddle">
-        {/* <BugerList /> */}
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/order/buger" component={BugerList} />
-            <Route path="/order/side" component={SideList} />
-            <Route path="/order/beverage" component={BeverageList} />
-          </Switch>
-        </BrowserRouter>
+      <div className={classes.menuContext}>
+        <BodyControl></BodyControl>
       </div>
       <BodyOrderChoiceList />
     </Fragment>

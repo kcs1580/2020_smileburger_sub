@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 const BodyOrderChoiceList = () => {
   const classes = useStyles();
   return (
-    <div className={classes.background} id="testChoice">
+    <div className={classes.background}>
       <h1 className={classes.text}>선택메뉴 보여주고, 결제 컴포넌트 달기</h1>
     </div>
   );
