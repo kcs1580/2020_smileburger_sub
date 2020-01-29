@@ -1,6 +1,7 @@
 import React from 'react';
 import Orderdetail from './Orderdetail';
 import Salesdetail from './Salesdetail'
+import TestButton from './test/testButton'
 
 const BodyControl = (props) => {
     switch (props.idx) {
@@ -9,7 +10,7 @@ const BodyControl = (props) => {
         case 1:
             return (<Salesdetail />)
         case 2:
-            return (<Orderdetail />)
+            return (<TestButton />)
         case 3:
             return (<Orderdetail />)
         default:

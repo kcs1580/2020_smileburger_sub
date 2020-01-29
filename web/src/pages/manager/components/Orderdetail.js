@@ -48,7 +48,7 @@ const Orderdetail = () => {
 
     const good = orderlist.map(order => {
         return (
-            <Card className={classes.Card} variant="outlined" display="inline">
+            <Card className={classes.Card} variant="outlined" display="inline" key={order.orderNum}>
                 <CardContent>
                     <Typography className={classes.numbering} color="textSecondary" align="center">
                         {order.orderNum}

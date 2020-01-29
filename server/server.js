@@ -20,9 +20,14 @@ app.use(require(`${__dirname}/middleware/db`));
 
 app.use("/base", require(`${__dirname}/route/base/base`));
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hello Vote On~");
 });
+
+app.get("/test/", function (req, res) {
+  console.log(req.query)
+  res.send(req.query)
+})
 
 app.listen(port, () => {
   console.log(`Backend start ${port}!`);
