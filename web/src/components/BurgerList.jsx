@@ -45,13 +45,6 @@ const BurgerList = () => {
   const classes = useStyles();
   const [burgers, setBurgers] = useState([]);
 
-  // const onClick = burger => {
-  //   console.log("눌림")
-  //   return (
-  //     <BurgerModal burger={burger} />
-  //   );
-  // };
-
   useEffect(() => {
     axios
       .get("http://localhost:3001/test")
@@ -64,20 +57,14 @@ const BurgerList = () => {
       {/* End hero unit */}
       <Grid container spacing={4}>
         {burgers.map(burger => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={"burger" + burger.id}
-            // onClick={() => onClick(burger)}
-          >
+          <Grid item xs={12} sm={6} md={4} key={"burger" + burger.id}>
             <Card className={classes.card} key={burger.title}>
-              <CardMedia
+              {/* <CardMedia
                 className={classes.cardMedia}
                 image={burger.img}
                 title={burger.title}
-              />
+              /> */}
+              <BurgerModal burger={burger} />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
                   {burger.title}
@@ -91,7 +78,7 @@ const BurgerList = () => {
               </CardContent>
             </Card>
 
-            <BurgerModal burger={burger} />
+            {/* <BurgerModal burger={burger} /> */}
           </Grid>
         ))}
       </Grid>
