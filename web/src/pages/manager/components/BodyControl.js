@@ -1,20 +1,21 @@
 import React from 'react';
-import Orderdetail from './Orderdetail';
+import OrderContainer from '../containers/OrderContainer';
 import Salesdetail from './Salesdetail'
-import TestButton from './test/testButton'
+import TestUpload from './TestUpload';
+
 
 const BodyControl = (props) => {
     switch (props.idx) {
         case 0:
-            return (<Orderdetail />)
+            return (<OrderContainer />)
         case 1:
             return (<Salesdetail />)
         case 2:
-            return (<TestButton />)
+            return (<TestUpload />)
         case 3:
-            return (<Orderdetail />)
+            return (<OrderContainer />)
         default:
-            return (<Orderdetail />)
+            return (<OrderContainer />)
     }
 
 }

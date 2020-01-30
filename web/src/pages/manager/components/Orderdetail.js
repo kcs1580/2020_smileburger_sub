@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import { useDispatch } from 'react-redux'
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,44 +18,19 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Orderdetail = () => {
-    const classes = useStyles();
-    const orderlist = [
-        {
-            "orderNum": 100,
-            "menu": "상하이스파이시SET",
-            "amount": 1,
-            "isEatin": false
-        },
-        {
-            "orderNum": 101,
-            "menu": "선데이아이스크림",
-            "amount": 1,
-            "isEatin": true
-        },
-        {
-            "orderNum": 102,
-            "menu": "콘파이",
-            "amount": 1,
-            "isEatin": true
-        },
-        {
-            "orderNum": 103,
-            "menu": "싸이버거",
-            "amount": 1,
-            "isEatin": false
-        },
-    ]
 
+
+const Orderdetail = ({ orderlist }) => {
+    const classes = useStyles();
     const good = orderlist.map(order => {
         return (
-            <Card className={classes.Card} variant="outlined" display="inline" key={order.orderNum}>
+            <Card className={classes.Card} variant="outlined" display="inline" key={order.orderNum} onClick={() => { console.log("aa") }}>
                 <CardContent>
                     <Typography className={classes.numbering} color="textSecondary" align="center">
                         {order.orderNum}
                     </Typography>
-                    <h3>{order.menu}</h3>
-                    <h4>{order.amount}</h4>
+                    <h3>{order.itemList.menu}</h3>
+                    <h4>{order.itemList.ea}</h4>
                 </CardContent>
             </Card>
 

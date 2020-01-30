@@ -25,6 +25,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/test/", function (req, res) {
+  console.log(typeof (req.query))
   console.log(req.query)
   res.send(req.query)
 })

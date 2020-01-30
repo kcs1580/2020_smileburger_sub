@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '@material-ui/core/Button'
-import testInput from './dataupload'
 
-const TestButton = () => {
+
+const TestButton = ({ click }) => {
     return (
-        <Button variant="outlined" onClick={testInput} >
+        <Button variant="outlined" onClick={click} >
             <h3>test임</h3>
         </Button>
 
