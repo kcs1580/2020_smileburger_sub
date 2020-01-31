@@ -14,7 +14,8 @@ import {
   CardActions,
   CardHeader,
   IconButton,
-  Grid
+  Grid,
+  Paper
 } from "@material-ui/core";
 import { CancelOutlined } from "@material-ui/icons";
 
@@ -46,14 +47,9 @@ const useStyles = makeStyles(theme => ({
   },
   details: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    paddingRight: 20
   },
-  // title: {
-  //   fontSize: 14
-  // },
-  // pos: {
-  //   marginBottom: 12
-  // },
   img: {
     marginLeft: 40,
     marginRight: 40,
@@ -84,11 +80,27 @@ const BurgerMoal = ({ burger }) => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
+  const [count, setCount] = useState(1);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const onClickIncCnt = () => {
+    setCount(() => count + 1);
+  };
+
+  const onClickdecCnt = () => {
+    setCount(() => {
+      if (count > 2) {
+        return count - 1;
+      } else {
+        return 1;
+      }
+    });
   };
 
   const [openSingle, setOpenSingle] = useState(false);
@@ -129,7 +141,6 @@ const BurgerMoal = ({ burger }) => {
         aria-describedby="alert-dialog-description"
         maxWidth="xl"
       >
-        {/* -------------------------------------- */}
         <DialogTitle id="alert-dialog-title" className={classes.dialogTitle1}>
           <Typography variant="h4" style={{ paddingLeft: 25 }}>
             {burger.title}
@@ -165,7 +176,6 @@ const BurgerMoal = ({ burger }) => {
             </Button>
           </Grid>
         </Grid>
-        {/* -------------------------------------- */}
       </Dialog>
 
       {/* 단품선택 모달 */}
@@ -199,6 +209,21 @@ const BurgerMoal = ({ burger }) => {
             <p></p>
           </Typography>
         </DialogContent>
+        <Grid container>
+          <Grid item xs={6}>
+            <Paper elevation={0} style={{ textAlign: "center" }}>
+              <Button onClick={onClickdecCnt}>-</Button>
+              {count}
+              <Button onClick={onClickIncCnt}>+</Button>
+            </Paper>
+          </Grid>
+          <Grid item xs={5}>
+            <Paper elevation={0} style={{ textAlign: "Right" }}>
+              {burger.price_single}
+            </Paper>
+          </Grid>
+          <Grid item xs={1} />
+        </Grid>
       </Dialog>
 
       {/* 세트선택 모달 */}
