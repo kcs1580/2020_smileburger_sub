@@ -9,6 +9,7 @@ import Main from "./pages/Main";
 import Auth from "./pages/auth/auth-go";
 import Register from "./pages/auth/auth-register";
 import Order from "./pages/customer/kiosk-order";
+import wBoard from "./pages/waitingboard/wMain";
 
 import "./index.css";
 
@@ -45,7 +46,9 @@ const App = () => {
             <Route path="/Auth" component={Auth} />
             <Route path="/Register" component={Register} />
             <Route path="/Order" component={Order} />
+            <Route path="/wBoard" component={wBoard} />
             <Route path="/not-found" component={NotFound} />
+
             <Redirect to="/not-found" />
           </Switch>
         </BrowserRouter>

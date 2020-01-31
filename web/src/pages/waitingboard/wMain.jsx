@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Done from '../components/wBoard/Done';
-import Wating from '../components/wBoard/Wating';
-import WaitingContainer from '../containers/WaitingContainer'
+import Done from '../../components/wBoard/Done';
+import Waiting from '../../components/wBoard/Waiting';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -56,7 +56,7 @@ export default function FullWidthGrid() {
                
                 <Grid item="item" xs={7} className={classes.waiting}>
                 <Paper className={classes.paper2}>준비중</Paper>
-                    <WaitingContainer/>
+                    <Waiting/>
                 </Grid>
             </Grid>
          
