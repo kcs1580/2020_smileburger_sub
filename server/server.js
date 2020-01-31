@@ -31,8 +31,7 @@ app.get("/test/", function(req, res) {
     {
       id: 1,
       title: "싸이버거",
-      img:
-        "http://www.momstouch.co.kr/data/shopimages/xboard/menu/20170726381288.jpg",
+      img: "http://www.momstouch.co.kr/data/shopimages/xboard/menu/20170726381288.jpg",
       price_single: 3400,
       price_set: 5600,
       cooking_time: "7~10",
@@ -42,8 +41,7 @@ app.get("/test/", function(req, res) {
     {
       id: 2,
       title: "불싸이버거",
-      img:
-        "http://www.momstouch.co.kr/data/shopimages/xboard/menu/20170412442355.jpg",
+      img: "http://www.momstouch.co.kr/data/shopimages/xboard/menu/20170412442355.jpg",
       price_single: 3600,
       price_set: 5800,
       cooking_time: "7~10",
