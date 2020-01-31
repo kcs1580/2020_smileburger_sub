@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto"
   },
   container: {
-
-    marginTop: "100px",
+    marginTop: "120px",
     marginBottom: "30px"
   }
 }));
@@ -25,7 +24,9 @@ const Layout = props => {
       <CssBaseline />
       <Header />
       <Container className={classes.content} maxWidth="xl">
-        <div className={classes.container} style={{textAlign:"center"}}>{props.children}</div>
+        <div className={classes.container} style={{ textAlign: "center" }}>
+          {props.children}
+        </div>
       </Container>
       <Footer />
     </Fragment>

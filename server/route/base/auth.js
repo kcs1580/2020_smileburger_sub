@@ -1,7 +1,6 @@
 var express = require("express");
 var app = express.Router();
 
-
 app.get("/users/:user_id", async (req, res) => {
   if (!req.params || !req.params.user_id) {
     res.status(403).send({ msg: "잘못된 파라미터입니다ㅋㅋ." });

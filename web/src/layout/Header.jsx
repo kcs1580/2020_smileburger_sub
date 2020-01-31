@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import * as Colors from 'material-ui/styles/colors';
+import * as Colors from "material-ui/styles/colors";
 import {
   makeStyles,
   Typography,
@@ -12,10 +12,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import { CommonContext } from "../context/CommonContext";
 import { blue } from "@material-ui/core/colors";
-
 const useStyles = makeStyles(theme => ({
-
   appBar: {
+    height: "120px"
     // padding: `0 calc(10px + 2vw)`
   },
   menuButton: {
@@ -40,8 +39,12 @@ const Header = props => {
   };
 
   return (
-    <AppBar position="fixed" className={classes.appBar} style={{ backgroundColor: 'red' }}>
-      <Toolbar>
+    <AppBar
+      position="fixed"
+      className={classes.appBar}
+      style={{ backgroundColor: "red" }}
+    >
+      <Toolbar style={{ height: "120px" }}>
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -51,7 +54,11 @@ const Header = props => {
         >
           {/* <MenuIcon /> */}
         </IconButton>
-        <Typography variant="h6" className={classes.title} style={{textAlign: 'center'}}>
+        <Typography
+          variant="h6"
+          className={classes.title}
+          style={{ textAlign: "center" }}
+        >
           Head
         </Typography>
         <IconButton

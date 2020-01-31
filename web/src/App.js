@@ -9,7 +9,11 @@ import Main from "./pages/Main";
 import Auth from "./pages/auth/auth-go";
 import Register from "./pages/auth/auth-register";
 import Order from "./pages/customer/kiosk-order";
+import Admin_order_list from "./pages/admin/Admin_order_list";
 
+// import BugerList from "./components/BugerList";
+import wBoard from "./pages/waitingboard/wMain";
+import TestDB from "./pages/test/test1_db";
 import "./index.css";
 
 const theme = createMuiTheme({
@@ -45,7 +49,15 @@ const App = () => {
             <Route path="/Auth" component={Auth} />
             <Route path="/Register" component={Register} />
             <Route path="/Order" component={Order} />
+
+            <Route path="/wBoard" component={wBoard} />
+
+            <Route path="/TestDB" component={TestDB} />
+
             <Route path="/not-found" component={NotFound} />
+
+            <Route path="/Admin" component={Admin_order_list} />
+
             <Redirect to="/not-found" />
           </Switch>
         </BrowserRouter>

@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   toolbar: {
     minHeight: 30
   }
-
 }));
 
 const Footer = props => {
@@ -19,11 +18,16 @@ const Footer = props => {
 
   const classes = useStyles();
   return (
-    <AppBar position="fixed" className={classes.appBarFooter} style={{ backgroundColor: 'red' }}>
-      <Toolbar className={classes.toolbar}  style={{ alignSelf: 'center', height:'40px', fontWeight: 'bold'}} >
-        <Typography variant="body2" >
-          Footer
-        </Typography>
+    <AppBar
+      position="fixed"
+      className={classes.appBarFooter}
+      style={{ backgroundColor: "red" }}
+    >
+      <Toolbar
+        className={classes.toolbar}
+        style={{ alignSelf: "center", height: "40px", fontWeight: "bold" }}
+      >
+        <Typography variant="body2">Footer</Typography>
       </Toolbar>
     </AppBar>
   );
