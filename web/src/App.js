@@ -9,6 +9,7 @@ import Main from "./pages/Main";
 import Auth from "./pages/auth/auth-go";
 import Register from "./pages/auth/auth-register";
 import Order from "./pages/customer/kiosk-order";
+// import BugerList from "./components/BugerList";
 
 import "./index.css";
 

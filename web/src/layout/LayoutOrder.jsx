@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import HeaderOrder from "./HeaderOrder";
+import BodyOrder from "./BodyOrder";
 
 import { CssBaseline, Container, makeStyles } from "@material-ui/core";
 import { CommonContext } from "../context/CommonContext";
@@ -8,29 +8,20 @@ import { CommonContext } from "../context/CommonContext";
 const useStyles = makeStyles(theme => ({
   content: {
     margin: "0 auto"
-  },
-  container: {
-    marginTop: "120px",
-    marginBottom: "30px"
   }
 }));
 
-const Layout = props => {
+const LayoutOrder = props => {
   const classes = useStyles();
   const {} = useContext(CommonContext);
 
   return (
     <Fragment>
       <CssBaseline />
-      <Header />
-      <Container className={classes.content} maxWidth="xl">
-        <div className={classes.container} style={{ textAlign: "center" }}>
-          {props.children}
-        </div>
-      </Container>
-      <Footer />
+      <HeaderOrder />
+      <BodyOrder />
     </Fragment>
   );
 };
 
-export default Layout;
+export default LayoutOrder;
