@@ -47,54 +47,54 @@ class App extends Component {
                 brddate: new Date()
             }
         ],
-         selectedBoard:{}
+        selectedBoard: {}
     }
-    
+
     handleSaveData = (data) => {
         if (!data.brdno) {            // new : Insert
             this.setState({
-                maxNo: this.state.maxNo+1,
-                boards: this.state.boards.concat({brdno: this.state.maxNo, brddate: new Date(), ...data }),
+                maxNo: this.state.maxNo + 1,
+                boards: this.state.boards.concat({ brdno: this.state.maxNo, brddate: new Date(), ...data }),
                 selectedBoard: {}
             });
-        } else if(data.brdno){                                                        // Update
+        } else if (data.brdno) {                                                        // Update
             this.setState({
-                boards: this.state.boards.map(row => data.brdno === row.brdno ? {...data }: row),
+                boards: this.state.boards.map(row => data.brdno === row.brdno ? { ...data } : row),
                 selectedBoard: {}
-            })            
+            })
         }
     }
-    
+
     handleRemove = (brdno) => {
         this.setState({
             boards: this.state.boards.filter(row => row.brdno !== brdno)
         })
     }
-    
+
     handleSelectRow = (row) => {
-        this.setState({selectedBoard:row});
+        this.setState({ selectedBoard: row });
     }
-    
+
     render() {
         const { boards, selectedBoard } = this.state;
 
         return (
             <div className="App-BoardForm">
                 <h1>관리자 페이지 - 주문 목록 페이지 입니다.</h1>
-                <BoardForm selectedBoard={selectedBoard} onSaveData={this.handleSaveData}/>
+                <BoardForm selectedBoard={selectedBoard} onSaveData={this.handleSaveData} />
                 <table classname="App-table" border="2">
                     <tbody>
-                    <tr align="center">
-                        <td width="50">번호</td>
-                        <td width="100">주문자</td>
-                        <td width="100">주문수</td>
-                        <td width="200">날짜</td>
-                    </tr>
-                    {
-                        boards.map(row =>
-                            (<BoardItem key={row.brdno} row={row} onRemove={this.handleRemove} onSelectRow={this.handleSelectRow} />)
-                        )
-                    }
+                        <tr align="center">
+                            <td width="50">번호</td>
+                            <td width="100">주문자</td>
+                            <td width="100">주문수</td>
+                            <td width="200">날짜</td>
+                        </tr>
+                        {
+                            boards.map(row =>
+                                (<BoardItem key={row.brdno} row={row} onRemove={this.handleRemove} onSelectRow={this.handleSelectRow} />)
+                            )
+                        }
                     </tbody>
                 </table>
             </div>
@@ -104,3 +104,4 @@ class App extends Component {
 
 export default App;
 
+//0131
