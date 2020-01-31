@@ -9,18 +9,10 @@ import Main from "./pages/Main";
 import Auth from "./pages/auth/auth-go";
 import Register from "./pages/auth/auth-register";
 import Order from "./pages/customer/kiosk-order";
-<<<<<<< HEAD
 
 // import BugerList from "./components/BugerList";
-
-=======
-<<<<<<< web/src/App.js
 import wBoard from "./pages/waitingboard/wMain";
-=======
->>>>>>> 7e6bc6d37aa2dfee4518a95ff04ffc1aaf4d3a46
 import TestDB from "./pages/test/test1_db";
->>>>>>> web/src/App.js
-
 import "./index.css";
 
 const theme = createMuiTheme({
