@@ -1,28 +1,34 @@
 const envJson = require(`${__dirname}/env/env.json`);
 const port = process.env.PORT ? envJson.port : 3001;
-
+const http = require("http");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
-
+app.io = require("socket.io")();
 var corsOptions = {
-  origin: "*",
+  //origin: "*",
+  origin: true, // 추가된내용
+  credentials: true, // 추가된내용
   optionsSuccessStatus: 200
 };
 
+var server = http.createServer(app);
+app.io.attach(server);
+
 app.use(cors(corsOptions));
+//app.use(cors({ origin: true, credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(require(`${__dirname}/middleware/init`));
 app.use(require(`${__dirname}/middleware/db`));
 
-app.use("/base", require(`${__dirname}/route/base/base`));
+// app.use("/base", require(`${__dirname}/route/base/base`));
 
-app.get("/", function(req, res) {
-  res.send("Hello Vote On~");
-});
+// app.get("/", function(req, res) {
+//   res.send("Hello Vote On~");
+// });
 
 // -----------------------------------------------------------------------------------
 // 임시 데이터
@@ -52,6 +58,16 @@ app.get("/test/", function(req, res) {
 });
 // -----------------------------------------------------------------------------------
 
+app.io.on("connection", function(socket) {
+  console.log("a user connected");
+  socket.on("init", function(data) {
+    console.log(data.name);
+    socket.emit("welcome", `${data.name}`);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Backend start ${port}!`);
 });
+
+module.exports = app;

@@ -1,20 +1,34 @@
-import React, {useEffect} from 'react';
+import React, { useState } from "react";
+import socketio from "socket.io-client";
 
-const data = [10,11,12,13,14];
-const Waiting = ({ orderlist }) => {
+let onum = [1075];
+let num = 1;
 
-    const list = data.map((num) => {
-        return(<div>{num}</div>)
-    })
+const socket = socketio.connect("http://localhost:3001");
 
-    console.log(list)
+const data = [101, 102, 103, 104];
+const Waiting = () => {
+  const [li, setLi] = useState(0);
+  const list = data.map(nu2 => {
+    return <div>{nu2}</div>;
+  });
 
-    return (
-        <div>
-            {list}
-        </div>
-    );
-        
+  (() => {
+    socket.emit("init", { name: onum });
+    socket.on("welcome", msg => {
+      num = msg;
+      console.log(num);
+      setLi(num);
+    });
+  })();
+
+  return (
+    <div>
+      <div>{num}</div>
+
+      <br />
+    </div>
+  );
 };
 
 export default Waiting;
