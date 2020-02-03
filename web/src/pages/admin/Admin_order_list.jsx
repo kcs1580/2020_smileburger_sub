@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import BoardForm from './App_BoardForm';
 import BoardItem from './App_BoardItem';
 
-/*
-    component files.
-*/
 class App extends Component {
 
     state = {
