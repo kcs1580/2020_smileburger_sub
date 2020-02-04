@@ -42,18 +42,18 @@ export default function FullWidthGrid() {
   return (
     <div className={classes.root}>
       <Grid
-        container="container"
+        container
         spacing={1}
         style={{
           padding: "1%"
         }}
       >
-        <Grid item="item" xs={5} className={classes.done}>
+        <Grid item xs={5} className={classes.done}>
           <Paper className={classes.paper1}>준비완료</Paper>
           <Done />
         </Grid>
 
-        <Grid item="item" xs={7} className={classes.waiting}>
+        <Grid item xs={7} className={classes.waiting}>
           <Paper className={classes.paper2}>준비중</Paper>
           <Waiting />
         </Grid>
