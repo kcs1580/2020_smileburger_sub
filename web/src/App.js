@@ -4,7 +4,6 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { CommonContext } from "./context/CommonContext";
 
 import NotFound from "./pages/NotFound";
-import VoteMain from "./pages/VoteMain";
 import Main from "./pages/Main";
 import Auth from "./pages/auth/auth-go";
 import Register from "./pages/auth/auth-register";
@@ -12,6 +11,8 @@ import Order from "./pages/customer/kiosk-order";
 
 // import BugerList from "./components/BugerList";
 import wBoard from "./pages/waitingboard/wMain";
+import sockettest from "./pages/sockettest";
+
 import TestDB from "./pages/test/test1_db";
 import "./index.css";
 
@@ -52,7 +53,7 @@ const App = () => {
             <Route path="/wBoard" component={wBoard} />
 
             <Route path="/TestDB" component={TestDB} />
-
+            <Route path="/sockettest" component={sockettest} />
             <Route path="/not-found" component={NotFound} />
 
             <Redirect to="/not-found" />

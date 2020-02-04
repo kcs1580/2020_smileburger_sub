@@ -33,11 +33,22 @@ const serverHandler = (req,res) => {
 server.listen('3001',serverHandler);
 
 io.on("connection", function(socket) {
-  console.log("a user connected");
-  socket.on("init", function(data) {
-    console.log(data.name);
-    socket.emit("welcome", `${data.name}`);
+  console.log(socket.id+"a user connected");
+  
+  var instanceid = socket.id;
+
+  socket.on("joinRoom", function(data) {
+    console.log(instanceid+" : 접속");
+    socket.join(data.roomName);
+    roomName = data.roomName;
+
+    
   });
+
+  socket.on('reqMsg',function(data){
+    console.log(data);
+    io.sockets.in(roomName).emit('recMsg',{orderNum: data.orderNum, isReady: data.isReady});
+  })
 });
 
 
