@@ -13,6 +13,7 @@ import Order from "./pages/customer/kiosk-order";
 //Admin pages
 import Admin_main from "./pages/admin/Admin_main";
 import Admin_order_list from "./pages/admin/Admin_order_list";
+import Admin_login from "./pages/admin/Admin_login";
 
 
 // import BugerList from "./components/BugerList";
@@ -59,7 +60,6 @@ const App = () => {
             <Route path="/TestDB" component={TestDB} />
 
             <Route path="/not-found" component={NotFound} />
-
 
             <Route path="/Admin_main" component={Admin_main} />
             <Route path="/Admin_order_list" component={Admin_order_list} />

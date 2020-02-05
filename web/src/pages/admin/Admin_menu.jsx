@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Admin_menu.css'
 
 const Admin_menu = () => {

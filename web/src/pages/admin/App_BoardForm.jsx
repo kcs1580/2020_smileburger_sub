@@ -1,45 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+function BoardForm(props, nextProps, brdtitle, brdwriter) {
 
-class BoardForm extends Component {
-    
-    shouldComponentUpdate(nextProps, nextState) {
+    /*
+    const shouldComponentUpdate = () => {
         let selectedBoard = nextProps.selectedBoard;
         if (!selectedBoard.brdno) {
-            this.brdtitle.value = "";
-            this.brdwriter.value = "";        
+            brdtitle.value = "";
+            brdwriter.value = "";
             return true;
         }
-        
-        this.brdtitle.value = selectedBoard.brdtitle;
-        this.brdwriter.value = selectedBoard.brdwriter;        
-        return true;
-    }
 
-    handleSubmit = (e) => {
+        brdtitle.value = selectedBoard.brdtitle;
+        brdwriter.value = selectedBoard.brdwriter;
+        return true;
+    };
+    */
+
+    const handleSubmit = e => {
         e.preventDefault();
-        let selectedBoard = this.props.selectedBoard;
+        let selectedBoard = props.selectedBoard;
         let data = {
-            brdwriter: this.brdwriter.value,
-            brdtitle: this.brdtitle.value
+            brdwriter: brdwriter.value,
+            brdtitle: brdtitle.value
         }
         if (selectedBoard.brdno) {
             data.brdno = selectedBoard.brdno
             data.brddate = selectedBoard.brddate
-        }        
-        this.props.onSaveData(data);
-    }
-    
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input placeholder="주문자" ref={node => this.brdtitle = node}/>
-                <input placeholder="주문수" ref={node => this.brdwriter = node}/>
-                <button type="submit">확인</button>
-            </form>
-        );
-    }
-}
+        }
+        props.onSaveData(data);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input placeholder="주문자" ref={node => brdtitle = node} />
+            <input placeholder="주문수" ref={node => brdwriter = node} />
+            <button type="submit">확인</button>
+        </form>
+    );
+};
 
 export default BoardForm;
 

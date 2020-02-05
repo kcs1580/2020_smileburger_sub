@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 import Admin_menu from './Admin_menu'
-
+import Admin_login from './Admin_login'
 
 const contentStyles = {
     fontFamily: 'sans-serif',
@@ -42,14 +42,14 @@ const Admin_main = () => {
             />
 
             <div style={contentStyles}>
-                <br></br>
                 <h1>솔라시 키오스크 관리</h1>
                 <p>관리자 페이지에 오신것을 환영합니다.</p>
-                <br></br><br></br>
+                <br></br>
                 <img src="admin_img.png" alt="admin Image"></img>
+                <Admin_login></Admin_login>
             </div>
         </div>
     );
 };
 
-export default Admin_main;  
+export default Admin_main
