@@ -53,3 +53,5 @@ const Admin_main = () => {
 };
 
 export default Admin_main
+
+//0205 잘 올라 갔겠지. 잘할꺼야 할수있어 뭐 
