@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Admin_main from './Admin_main'
 
 function Copyright() {
     return (
@@ -38,7 +39,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignIn() {
+
     const classes = useStyles();
+
+    const [id, setId] = useState('');
+    const [password, setPw] = useState('');
+
+    const loginsubmit = () => {
+
+        console.log(`id는 : ${id} \n pw는 : ${password}`);
+
+        if (id == "admin" && password == "pw123") {
+            console.log('###############################');
+            Admin_main.iscan = true;
+        }
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -50,11 +65,10 @@ export default function SignIn() {
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Admin ID"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
+                        name="adminid"
+                        label="Admin Id"
+                        value={id}
+                        onChange={({ target: { value } }) => setId(value)}
                     />
                     <TextField
                         variant="outlined"
@@ -64,15 +78,17 @@ export default function SignIn() {
                         name="password"
                         label="Password"
                         type="password"
-                        id="password"
-                        autoComplete="current-password"
+                        value={password}
+                        onChange={({ target: { value } }) => setPw(value)}
                     />
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}>
+                        className={classes.submit}
+                        onClick={loginsubmit}
+                    >
                         Login
                      </Button>
                     <Grid container>
@@ -84,7 +100,7 @@ export default function SignIn() {
                     </Grid>
                 </form>
             </div>
-            <Box mt={8}>
+            <Box mt={1}>
                 <Copyright />
             </Box>
         </Container>

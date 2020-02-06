@@ -32,7 +32,7 @@ function BoardForm(props, nextProps, brdtitle, brdwriter) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} align="center">
             <input placeholder="주문자" ref={node => brdtitle = node} />
             <input placeholder="주문수" ref={node => brdwriter = node} />
             <button type="submit">확인</button>

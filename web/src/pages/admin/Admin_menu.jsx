@@ -1,32 +1,32 @@
 import React from 'react'
 import './Admin_menu.css'
+import { Link } from 'react-router-dom'
+
+const MenuItem = ({ children, to }) => (
+    <Link to={to}>
+        {children}
+    </Link>
+)
 
 const Admin_menu = () => {
     return (
         <div className="menu" >
             <div className="menu-item">
-                <a
-                    href="/Admin_order_list"
-                    target="_blank">
-                    주문 목록
-                </a>
+                <MenuItem to={'/Admin_main'}><p className="menu-item01">관리자 메인 홈</p></MenuItem>
             </div>
 
             <div className="menu-item">
-                <a
-                    href="/Admin_order_list"
-                    target="_blank">
-                    매장 관리
-                </a>
+                <MenuItem to={'/Admin_order_list'}><p>주문 목록</p></MenuItem>
             </div>
 
             <div className="menu-item">
-                <a
-                    href="/Admin_order_list"
-                    target="_blank">
-                    키오스크 관리
-                </a>
+                <MenuItem to={'/Admin_order_list'}><p>매장 관리</p></MenuItem>
             </div>
+
+            <div className="menu-item">
+                <MenuItem to={'/Admin_order_list'}><p>키오스크 관리</p></MenuItem>
+            </div>
+            <br></br>
             <p className="hint">관리하고자 하는 메뉴를<br></br> 클릭해 주세요</p>
         </div >
     );

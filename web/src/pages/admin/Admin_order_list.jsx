@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import BoardForm from './App_BoardForm';
 import BoardItem from './App_BoardItem';
+import Admin_menu from './Admin_menu'
+import CheeseburgerMenu from 'cheeseburger-menu'
+import HamburgerMenu from 'react-hamburger-menu'
 
 function App() {
 
@@ -50,13 +53,40 @@ function App() {
         });
     };
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const openMenu = useCallback(() => {
+        setMenuOpen(true);
+    }, [menuOpen]);
+    const closeMenu = useCallback(() => {
+        setMenuOpen(false);
+    }, [menuOpen]);
+
     return (
         <div className="App-BoardForm">
-            <h1>관리자 페이지 - 주문 목록 페이지 입니다.</h1>
+            <br></br>
+            <CheeseburgerMenu
+                isOpen={menuOpen}
+                closeCallback={closeMenu}>
+                <Admin_menu />
+            </CheeseburgerMenu>
+
+            <HamburgerMenu
+                isOpen={menuOpen}
+                menuClicked={openMenu}
+                width={50}
+                height={50}
+                strokeWidth={10}
+                rotate={0}
+                color='blue'
+                borderRadius={0}
+                animationDuration={0.5}
+            />
+            <h1 align="center">관리자 페이지 - 주문 목록 페이지 입니다.</h1>
             <BoardForm selectedBoard={state.selectedBoard} onSaveData={handleSaveData} />
-            <table classname="App-table" border="2">
+            <table classname="App-table" border="2" align="center">
                 <tbody>
-                    <tr align="center">
+                    <tr>
                         <td width="50">번호</td>
                         <td width="100">주문자</td>
                         <td width="100">주문수</td>

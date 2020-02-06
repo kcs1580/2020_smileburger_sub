@@ -5,6 +5,11 @@
   .menu-item {
     border-bottom: 1px solid #ddd;
   }
+
+  .menu-item01 {
+    font-weight: 900;
+    font-size: 25px;
+  }
   
   .menu-item a {
     display: block;
