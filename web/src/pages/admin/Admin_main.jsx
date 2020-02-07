@@ -11,8 +11,6 @@ const contentStyles = {
 
 const Admin_main = () => {
 
-    var iscan = false;
-
     const [menuOpen, setMenuOpen] = useState(false);
 
     const openMenu = useCallback(() => {

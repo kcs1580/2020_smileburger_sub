@@ -20,11 +20,11 @@ const Admin_menu = () => {
             </div>
 
             <div className="menu-item">
-                <MenuItem to={'/Admin_order_list'}><p>매장 관리</p></MenuItem>
+                <MenuItem to={'/Admin_store'}><p>매장 관리</p></MenuItem>
             </div>
 
             <div className="menu-item">
-                <MenuItem to={'/Admin_order_list'}><p>키오스크 관리</p></MenuItem>
+                <MenuItem to={'/Admin_kiosk'}><p>키오스크 관리</p></MenuItem>
             </div>
             <br></br>
             <p className="hint">관리하고자 하는 메뉴를<br></br> 클릭해 주세요</p>

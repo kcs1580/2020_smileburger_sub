@@ -8,7 +8,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Admin_main from './Admin_main'
 
 function Copyright() {
     return (
@@ -51,7 +50,6 @@ export default function SignIn() {
 
         if (id == "admin" && password == "pw123") {
             console.log('###############################');
-            Admin_main.iscan = true;
         }
     }
 

@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import BoardForm from './App_BoardForm';
-import BoardItem from './App_BoardItem';
+import BoardForm from './Admin_BoardForm';
+import BoardItem from './Admin_BoardItem';
 import Admin_menu from './Admin_menu'
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 
-function App() {
+function Admin_order_list() {
 
     const [state, setState] = useState({
         maxNo: 2,
@@ -14,6 +14,7 @@ function App() {
                 brdno: 1,
                 brdwriter: '5',
                 brdtitle: '솔라시',
+                brdcost: '32,500',
                 brddate: new Date()
             },
         ],
@@ -83,14 +84,17 @@ function App() {
                 animationDuration={0.5}
             />
             <h1 align="center">관리자 페이지 - 주문 목록 페이지 입니다.</h1>
+            <br></br>
             <BoardForm selectedBoard={state.selectedBoard} onSaveData={handleSaveData} />
-            <table classname="App-table" border="2" align="center">
+            <br></br>
+            <table border="2" align="center">
                 <tbody>
                     <tr>
                         <td width="50">번호</td>
                         <td width="100">주문자</td>
                         <td width="100">주문수</td>
-                        <td width="200">날짜</td>
+                        <td width="100">총 금액</td>
+                        <td width="200">구매 시각</td>
                     </tr>
                     {
                         state.boards.map(row =>
@@ -103,4 +107,4 @@ function App() {
     );
 };
 
-export default App;
+export default Admin_order_list;
