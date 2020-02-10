@@ -5,6 +5,8 @@ import Admin_menu from './Admin_menu'
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 
+import axios from 'axios';
+
 function Admin_order_list() {
 
     const [state, setState] = useState({
@@ -12,6 +14,7 @@ function Admin_order_list() {
         boards: [
             {
                 brdno: 1,
+                brdstore: '수완',
                 brdwriter: '5',
                 brdtitle: '솔라시',
                 brdcost: '32,500',
@@ -63,6 +66,15 @@ function Admin_order_list() {
         setMenuOpen(false);
     }, [menuOpen]);
 
+    // componentDidMount() = {
+    //     _dbTest();
+    // };
+
+    const _dbTest = async () => {
+        const res = await axios.get('/api/test');
+        console.log(res.data)
+    }
+
     return (
         <div className="App-BoardForm">
             <br></br>
@@ -83,7 +95,7 @@ function Admin_order_list() {
                 borderRadius={0}
                 animationDuration={0.5}
             />
-            <h1 align="center">관리자 페이지 - 주문 목록 페이지 입니다.</h1>
+            <h1 align="center">주문 목록</h1>
             <br></br>
             <BoardForm selectedBoard={state.selectedBoard} onSaveData={handleSaveData} />
             <br></br>
@@ -91,8 +103,9 @@ function Admin_order_list() {
                 <tbody>
                     <tr>
                         <td width="50">번호</td>
+                        <td width="50">지점</td>
                         <td width="100">주문자</td>
-                        <td width="100">주문수</td>
+                        <td width="100">주문건</td>
                         <td width="100">총 금액</td>
                         <td width="200">구매 시각</td>
                     </tr>

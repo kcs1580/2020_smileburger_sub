@@ -1,6 +1,8 @@
 import React from 'react';
 
-function BoardForm(props, nextProps, brdtitle, brdwriter) {
+import axios from 'axios';
+
+function BoardForm(props, nextProps, brdstore, brdtitle, brdwriter) {
 
     /*
     const shouldComponentUpdate = () => {
@@ -17,10 +19,20 @@ function BoardForm(props, nextProps, brdtitle, brdwriter) {
     };
     */
 
+    const componentDidMount = () => {
+        _dbTest()
+    };
+
+    const _dbTest = async () => {
+        const res = await axios.get('/api/test');
+        console.log(res.data)
+    };
+
     const handleSubmit = e => {
         e.preventDefault();
         let selectedBoard = props.selectedBoard;
         let data = {
+            brdstore: brdstore.value,
             brdwriter: brdwriter.value,
             brdtitle: brdtitle.value
         }
@@ -33,6 +45,7 @@ function BoardForm(props, nextProps, brdtitle, brdwriter) {
 
     return (
         <form onSubmit={handleSubmit} align="center">
+            <input placeholder="지점" ref={node => brdstore = node} />
             <input placeholder="주문자" ref={node => brdtitle = node} />
             <input placeholder="주문수" ref={node => brdwriter = node} />
             <button type="submit">확인</button>
