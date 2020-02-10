@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   makeStyles,
   CardMedia,
@@ -15,9 +15,16 @@ import {
   CardHeader,
   IconButton,
   Grid,
-  Paper
+  Paper,
+  Icon
 } from "@material-ui/core";
-import { CancelOutlined } from "@material-ui/icons";
+import { red } from "@material-ui/core/colors";
+import {
+  CancelOutlined,
+  AddBox,
+  IndeterminateCheckBox
+} from "@material-ui/icons";
+import BurgerModalRequests from "./BurgerModalRequests";
 
 const useStyles = makeStyles(theme => ({
   cardMedia: {
@@ -80,8 +87,6 @@ const BurgerMoal = ({ burger }) => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
-  const [count, setCount] = useState(1);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -89,11 +94,13 @@ const BurgerMoal = ({ burger }) => {
     setOpen(false);
   };
 
+  const [count, setCount] = useState(0);
+  const [price, setPrice] = useState(0);
+  // const [total, setTotal] = useState(0);
   const onClickIncCnt = () => {
     setCount(() => count + 1);
   };
-
-  const onClickdecCnt = () => {
+  const onClickDecCnt = () => {
     setCount(() => {
       if (count > 2) {
         return count - 1;
@@ -103,10 +110,19 @@ const BurgerMoal = ({ burger }) => {
     });
   };
 
+  const priceChanger = newPrice => {
+    setPrice(newPrice);
+  };
+
+  const getTotal = () => price * count;
+  const total = useMemo(() => getTotal(), [count, price]);
+
   const [openSingle, setOpenSingle] = useState(false);
   const handleClickOpenSingle = () => {
     setOpen(false);
     setOpenSingle(true);
+    setCount(1);
+    setPrice(burger.price_single);
   };
   const handleCloseSingle = () => {
     setOpenSingle(false);
@@ -129,9 +145,6 @@ const BurgerMoal = ({ burger }) => {
         title={burger.title}
         onClick={handleClickOpen}
       />
-      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        {burger.title}
-      </Button> */}
 
       {/* 메뉴선택 모달 */}
       <Dialog
@@ -178,7 +191,7 @@ const BurgerMoal = ({ burger }) => {
         </Grid>
       </Dialog>
 
-      {/* 단품선택 모달 */}
+      {/* 단품선택 모달 ----------------------------------------------------------------------------*/}
       <Dialog
         open={openSingle}
         onClose={handleCloseSingle}
@@ -212,21 +225,27 @@ const BurgerMoal = ({ burger }) => {
         <Grid container>
           <Grid item xs={6}>
             <Paper elevation={0} style={{ textAlign: "center" }}>
-              <Button onClick={onClickdecCnt}>-</Button>
+              <IndeterminateCheckBox
+                onClick={onClickDecCnt}
+                style={{ color: "red" }}
+              />
               {count}
-              <Button onClick={onClickIncCnt}>+</Button>
+              <AddBox onClick={onClickIncCnt} style={{ color: "red" }} />
             </Paper>
           </Grid>
           <Grid item xs={5}>
             <Paper elevation={0} style={{ textAlign: "Right" }}>
-              {burger.price_single}
+              {total}
             </Paper>
           </Grid>
           <Grid item xs={1} />
         </Grid>
+        {/* ======지금여기 작업중=================== */}
+        <BurgerModalRequests priceChanger={priceChanger} />
+        {/* ======지금여기 작업중=================== */}
       </Dialog>
 
-      {/* 세트선택 모달 */}
+      {/* 세트선택 모달 ----------------------------------------------------------------------------*/}
       <Dialog
         open={openSet}
         onClose={handleCloseSet}
